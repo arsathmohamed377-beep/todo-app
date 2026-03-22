@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Devi Silks – K.K. Nagar, Chennai</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Tiro+Tamil&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root {
+  --ruby:    #9B1B30;
+  --ruby-dk: #6E1120;
+  --gold:    #BF8A30;
+  --gold-lt: #D9AC60;
+  --cream:   #FBF5EC;
+  --warm-wh: #FFFDF9;
+  --ink:     #1E1612;
+  --muted:   #7A6A5A;
+  --border:  rgba(191,138,48,.25);
+  --shadow:  0 4px 28px rgba(155,27,48,.08);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:var(--warm-wh);color:var(--ink);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ── UTILITIES ── */
+.container{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+.tag{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.serif{font-family:'Playfair Display',serif}
+
+/* ── ANNOUNCEMENT BAR ── */
+.ann{background:var(--ruby);color:var(--gold-lt);text-align:center;padding:.45rem 1rem;font-size:.74rem;letter-spacing:.14em;font-weight:500}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:var(--warm-wh);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(155,27,48,.09)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;max-width:1080px;margin:0 auto}
+.logo{line-height:1}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:var(--ruby);letter-spacing:.01em}
+.logo-sub{font-size:.64rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-top:.1rem}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s;position:relative;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--ruby);transition:width .3s}
+.nav-links a:hover{color:var(--ruby)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--ruby);color:#fff;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;padding:.55rem 1.35rem;font-weight:500;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--ruby-dk)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ruby);transition:.3s}
+
+/* ── HERO ── */
+.hero{min-height:88vh;display:flex;align-items:center;background:var(--cream);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;width:42%;height:100%;background:linear-gradient(160deg,rgba(191,138,48,.07),rgba(155,27,48,.05));clip-path:polygon(12% 0,100% 0,100% 100%,0 100%)}
+/* Subtle grid texture */
+.hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(191,138,48,.06) 59px,rgba(191,138,48,.06) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(191,138,48,.06) 59px,rgba(191,138,48,.06) 60px);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:620px}
+.hero-tag{margin-bottom:1.1rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,4.8rem);font-weight:700;line-height:1.06;color:var(--ruby);margin-bottom:.5rem}
+.hero h1 span{font-style:italic;font-weight:400;color:var(--ink)}
+.hero-tamil{font-family:'Tiro Tamil',serif;font-size:1.05rem;color:var(--muted);margin:.5rem 0 1.4rem}
+.hero-desc{font-size:1rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:480px;margin-bottom:2rem}
+.hero-since{display:inline-flex;align-items:center;gap:.7rem;background:var(--warm-wh);border:1px solid var(--border);padding:.55rem 1.1rem;font-size:.75rem;color:var(--muted);letter-spacing:.06em;margin-bottom:2rem}
+.hero-since strong{color:var(--ruby);font-weight:600}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--ruby);color:#fff;padding:.8rem 2rem;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:500;transition:background .2s,transform .2s;display:inline-block}
+.btn-primary:hover{background:var(--ruby-dk);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ruby);padding:.8rem 2rem;border:1.5px solid var(--ruby);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .2s;display:inline-block}
+.btn-ghost:hover{background:var(--ruby);color:#fff;transform:translateY(-2px)}
+/* Hero deco badge */
+.hero-badge{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:170px;height:170px;border-radius:50%;background:var(--ruby);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;z-index:1}
+.hero-badge-yr{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1;color:var(--gold-lt)}
+.hero-badge-txt{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;margin-top:.3rem;opacity:.85}
+.hero-badge-sub{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-top:.2rem}
+
+/* ── MARQUEE ── */
+.marquee-bar{background:var(--ruby);overflow:hidden;padding:.65rem 0;white-space:nowrap}
+.marquee-track{display:inline-block;animation:scroll 30s linear infinite}
+.marquee-track span{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-lt);margin:0 2.2rem}
+.marquee-track .sep{color:rgba(255,255,255,.3);margin:0 .5rem;font-size:.55rem;vertical-align:middle}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTION BASE ── */
+.section{padding:5.5rem 0}
+.section-alt{background:var(--cream)}
+.section-head{text-align:center;margin-bottom:3.2rem}
+.section-head .tag{margin-bottom:.6rem}
+.section-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:600;color:var(--ruby);margin-bottom:.6rem}
+.section-head p{font-size:.93rem;color:var(--muted);font-weight:300;line-height:1.75;max-width:520px;margin:0 auto}
+.rule{display:flex;align-items:center;justify-content:center;gap:1rem;margin:.8rem auto 0;max-width:200px}
+.rule::before,.rule::after{content:'';flex:1;height:1px;background:var(--border)}
+.rule-gem{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+
+/* ── PRODUCTS ── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.6rem}
+.prod-card{background:var(--warm-wh);border:1px solid var(--border);overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:default}
+.prod-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.prod-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:3.2rem;position:relative;overflow:hidden}
+.prod-img .weave{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.15) 0,rgba(255,255,255,.15) 1px,transparent 1px,transparent 12px),repeating-linear-gradient(-45deg,rgba(255,255,255,.15) 0,rgba(255,255,255,.15) 1px,transparent 1px,transparent 12px)}
+.prod-emoji{position:relative;z-index:1;filter:drop-shadow(0 3px 8px rgba(0,0,0,.18))}
+.prod-card:nth-child(1) .prod-img{background:linear-gradient(135deg,#f5e6cc,#d9a84a)}
+.prod-card:nth-child(2) .prod-img{background:linear-gradient(135deg,#f0d8d8,#c47070)}
+.prod-card:nth-child(3) .prod-img{background:linear-gradient(135deg,#dce8f0,#7aaac4)}
+.prod-card:nth-child(4) .prod-img{background:linear-gradient(135deg,#e8ddf5,#9a7ac4)}
+.prod-card:nth-child(5) .prod-img{background:linear-gradient(135deg,#d8f0e0,#5aaa7a)}
+.prod-card:nth-child(6) .prod-img{background:linear-gradient(135deg,#f5ead8,#c49060)}
+.prod-label{position:absolute;top:.65rem;left:.65rem;background:var(--ruby);color:var(--gold-lt);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .55rem;font-weight:500}
+.prod-body{padding:1.1rem 1.2rem 1.3rem}
+.prod-body h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--ruby);margin-bottom:.3rem}
+.prod-body p{font-size:.78rem;color:var(--muted);line-height:1.55;font-weight:300}
+
+/* ── ABOUT STRIP ── */
+.about-strip{background:var(--ruby);padding:4.5rem 0}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text .tag{color:var(--gold-lt);opacity:.8;margin-bottom:.6rem}
+.about-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;margin-bottom:1rem;line-height:1.2}
+.about-text p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.8;font-weight:300;margin-bottom:1.5rem}
+.about-text p + p{margin-top:.6rem}
+.about-text a{color:var(--gold-lt);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;border-bottom:1px solid rgba(217,172,96,.4);padding-bottom:2px;transition:border-color .2s}
+.about-text a:hover{border-color:var(--gold-lt)}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.stat-box{border:1px solid rgba(255,255,255,.15);padding:1.5rem 1.2rem;text-align:center;background:rgba(255,255,255,.05)}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--gold-lt);line-height:1}
+.stat-lbl{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:.4rem}
+
+/* ── WHY ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.4rem}
+.why-card{padding:2rem 1.4rem;border:1px solid var(--border);background:var(--warm-wh);text-align:center;transition:box-shadow .25s}
+.why-card:hover{box-shadow:var(--shadow)}
+.why-icon{font-size:2rem;margin-bottom:.9rem}
+.why-card h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--ruby);margin-bottom:.45rem}
+.why-card p{font-size:.78rem;color:var(--muted);line-height:1.6;font-weight:300}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact-block h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ruby);margin-bottom:1.6rem}
+.c-row{display:flex;gap:1rem;margin-bottom:1.3rem;align-items:flex-start}
+.c-icon{width:40px;height:40px;background:var(--ruby);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.c-info strong{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:.25rem}
+.c-info span,.c-info a{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.5;display:block}
+.c-info a:hover{color:var(--ruby)}
+/* Payment pills */
+.pay-row{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.5rem}
+.pay-pill{background:var(--cream);border:1px solid var(--border);font-size:.7rem;letter-spacing:.08em;padding:.3rem .75rem;color:var(--muted);font-weight:500}
+/* Map placeholder */
+.map-card{background:var(--cream);border:1px solid var(--border);height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;position:relative;overflow:hidden}
+.map-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 29px,var(--border) 29px,var(--border) 30px),repeating-linear-gradient(90deg,transparent,transparent 29px,var(--border) 29px,var(--border) 30px);opacity:.5}
+.map-pin{font-size:2.6rem;position:relative;z-index:1}
+.map-info{position:relative;z-index:1;text-align:center}
+.map-info strong{display:block;font-family:'Playfair Display',serif;font-size:1rem;color:var(--ruby)}
+.map-info span{font-size:.78rem;color:var(--muted)}
+.map-link{position:relative;z-index:1;background:var(--ruby);color:#fff;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;padding:.55rem 1.4rem;transition:background .2s}
+.map-link:hover{background:var(--ruby-dk)}
+/* Hours badge */
+.hours-badge{background:var(--ruby);color:#fff;display:inline-flex;align-items:center;gap:.6rem;padding:.55rem 1rem;font-size:.78rem;margin-top:1rem}
+.hours-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;flex-shrink:0}
+
+/* ── SOCIAL STRIP ── */
+.social-strip{background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 0}
+.social-inner{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.social-item{display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--muted);font-weight:400;transition:color .2s}
+.social-item:hover{color:var(--ruby)}
+.social-icon{width:38px;height:38px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;transition:border-color .2s}
+.social-item:hover .social-icon{border-color:var(--ruby)}
+.social-sep{height:28px;width:1px;background:var(--border)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.45);padding:3rem 0 1.8rem}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.footer-brand .logo-name{color:var(--gold-lt);font-size:1.4rem}
+.footer-brand .logo-sub{color:rgba(191,138,48,.6)}
+.footer-brand p{font-size:.8rem;line-height:1.7;margin-top:1rem;color:rgba(255,255,255,.4);font-weight:300}
+.footer-col h5{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.55rem}
+.footer-col a{font-size:.8rem;color:rgba(255,255,255,.4);transition:color .2s}
+.footer-col a:hover{color:var(--gold-lt)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.footer-copy{font-size:.72rem}
+.footer-est{font-family:'Playfair Display',serif;font-size:.8rem;color:rgba(191,138,48,.5)}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--warm-wh);border-top:1px solid var(--border);flex-direction:column;padding:1rem 1.5rem;gap:.8rem}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .nav-cta{display:none}
+  .hero-badge{display:none}
+  .hero-content{max-width:100%}
+  .about-inner,.contact-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+
+/* ── FADE-IN ANIMATION ── */
+.hero-content>*{opacity:0;transform:translateY(22px);animation:up .9s ease forwards}
+.hero-tag{animation-delay:.05s}
+.hero h1{animation-delay:.15s}
+.hero-tamil{animation-delay:.22s}
+.hero-since{animation-delay:.28s}
+.hero-desc{animation-delay:.33s}
+.hero-btns{animation-delay:.42s}
+@keyframes up{to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="ann">Serving Chennai families since 1966 &nbsp;·&nbsp; Mon–Sun: 10:00 AM – 8:30 PM &nbsp;·&nbsp; 044 4272 3030</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-name">Sri Devi Silks</div>
+      <div class="logo-sub">K.K. Nagar, Chennai</div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:04442723030" class="nav-cta">Call Us</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="tag hero-tag">Chennai's Trusted Silk Store Since 1966</p>
+      <h1>Sri Devi<br><span>Silks</span></h1>
+      <p class="hero-tamil">ஸ்ரீ தேவி சில்க்ஸ் – கே.கே.நகர், சென்னை</p>
+      <div class="hero-since"><strong>Est. 1966</strong> · Proprietor: K.L. Kannan</div>
+      <p class="hero-desc">Your neighbourhood destination for authentic silk sarees, dress materials, and fine clothing — curated for every occasion and every budget.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">View Collection</a>
+        <a href="#contact" class="btn-ghost">Find Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="hero-badge-yr">1966</div>
+    <div class="hero-badge-txt">Established</div>
+    <div class="hero-badge-sub">Over 58 years</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Silk Sarees</span><span class="sep">◆</span>
+    <span>Banarasi Sarees</span><span class="sep">◆</span>
+    <span>Cotton Sarees</span><span class="sep">◆</span>
+    <span>Dress Materials</span><span class="sep">◆</span>
+    <span>Women's Clothing</span><span class="sep">◆</span>
+    <span>Boutique Collections</span><span class="sep">◆</span>
+    <span>Men's Wear</span><span class="sep">◆</span>
+    <span>Traditional Sarees</span><span class="sep">◆</span>
+    <span>Silk Sarees</span><span class="sep">◆</span>
+    <span>Banarasi Sarees</span><span class="sep">◆</span>
+    <span>Cotton Sarees</span><span class="sep">◆</span>
+    <span>Dress Materials</span><span class="sep">◆</span>
+    <span>Women's Clothing</span><span class="sep">◆</span>
+    <span>Boutique Collections</span><span class="sep">◆</span>
+    <span>Men's Wear</span><span class="sep">◆</span>
+    <span>Traditional Sarees</span><span class="sep">◆</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-head">
+      <p class="tag">What We Offer</p>
+      <h2>Our Products</h2>
+      <div class="rule"><div class="rule-gem"></div></div>
+      <p>From heirloom silks to everyday cottons — a curated range for women, men, and every occasion.</p>
+    </div>
+    <div class="products-grid">
+      <div class="prod-card">
+        <div class="prod-img">
+          <div class="weave"></div>
+          <span class="prod-emoji">🪡</span>
+          <span class="prod-label">Signature</span>
+        </div>
+        <div class="prod-body">
+          <h3>Silk Sarees</h3>
+          <p>Pure silk sarees in classic and contemporary weaves — Kanchipuram, Banarasi, Mysore silk, and more.</p>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img">
+          <div class="weave"></div>
+          <span class="prod-emoji">✨</span>
+        </div>
+        <div class="prod-body">
+          <h3>Banarasi Sarees</h3>
+          <p>Opulent brocade sarees from Varanasi with intricate zari work and rich, lustrous fabric.</p>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img">
+          <div class="weave"></div>
+          <span class="prod-emoji">🌿</span>
+          <span class="prod-label">Everyday</span>
+        </div>
+        <div class="prod-body">
+          <h3>Cotton Sarees</h3>
+          <p>Vibrant, breathable cotton sarees for daily wear — comfortable and easy to drape all day.</p>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img">
+          <div class="weave"></div>
+          <span class="prod-emoji">👗</span>
+        </div>
+        <div class="prod-body">
+          <h3>Women's Clothing</h3>
+          <p>Kurtis, churidars, salwar suits, and ready-to-wear ethnic wear for women of all ages.</p>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img">
+          <div class="weave"></div>
+          <span class="prod-emoji">🎨</span>
+          <span class="prod-label">Trending</span>
+        </div>
+        <div class="prod-body">
+          <h3>Dress Materials</h3>
+          <p>Unstitched fabric sets in cotton, silk, georgette, and blends — stitch to your perfect fit.</p>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img">
+          <div class="weave"></div>
+          <span class="prod-emoji">👔</span>
+        </div>
+        <div class="prod-body">
+          <h3>Men's Wear & Boutique</h3>
+          <p>Select men's ethnic wear plus exclusive boutique collections for special occasions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-strip" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="tag">Our Story</p>
+        <h2>A Legacy Woven<br>Since 1966</h2>
+        <p>Sri Devi Silks was founded in 1966 by our family with a simple mission: bring the finest Indian fabrics to the families of Chennai at fair, honest prices. Over five decades, we have grown into one of K.K. Nagar's most trusted and beloved clothing stores.</p>
+        <p>Under the proprietorship of K.L. Kannan, we continue that tradition — hand-selecting every saree and garment, building lasting relationships with our customers, and celebrating the beauty of Indian textiles.</p>
+        <a href="#contact">Visit us in store →</a>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-num">58+</div>
+          <div class="stat-lbl">Years of Service</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">6</div>
+          <div class="stat-lbl">Product Categories</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">7</div>
+          <div class="stat-lbl">Days a Week</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">4+</div>
+          <div class="stat-lbl">Payment Options</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section section-alt" id="why">
+  <div class="container">
+    <div class="section-head">
+      <p class="tag">Why Choose Us</p>
+      <h2>The Sri Devi Difference</h2>
+      <div class="rule"><div class="rule-gem"></div></div>
+      <p>Three generations of trust, quality, and genuine care for every customer.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <h4>Trusted Since 1966</h4>
+        <p>Over 58 years of serving Chennai families with consistent quality and honest pricing.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🪡</div>
+        <h4>Authentic Fabrics</h4>
+        <p>Every saree and garment is sourced from reputed weavers and mills — no shortcuts.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌈</div>
+        <h4>Wide Selection</h4>
+        <p>Silk, Banarasi, cotton, dress materials, boutique wear — all under one roof in KK Nagar.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💳</div>
+        <h4>All Payment Modes</h4>
+        <p>Cash, debit card, credit card, and UPI — pay the way that suits you best.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🕐</div>
+        <h4>Open Every Day</h4>
+        <p>We're open Monday through Sunday, 10 AM to 8:30 PM — including all holidays.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">👐</div>
+        <h4>Personal Attention</h4>
+        <p>Warm, experienced staff who help you find the perfect outfit for every occasion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <div class="social-inner">
+    <a href="https://instagram.com/sridevisilkschennai" target="_blank" class="social-item">
+      <div class="social-icon">📸</div>
+      <span>@sridevisilkschennai</span>
+    </a>
+    <div class="social-sep"></div>
+    <a href="mailto:sridevisilkschennai@gmail.com" class="social-item">
+      <div class="social-icon">✉️</div>
+      <span>sridevisilkschennai@gmail.com</span>
+    </a>
+    <div class="social-sep"></div>
+    <a href="tel:04442723030" class="social-item">
+      <div class="social-icon">📞</div>
+      <span>044 4272 3030</span>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <p class="tag">Get In Touch</p>
+      <h2>Visit Our Store</h2>
+      <div class="rule"><div class="rule-gem"></div></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-block">
+        <h3>Sri Devi Silks, K.K. Nagar</h3>
+
+        <div class="c-row">
+          <div class="c-icon">📍</div>
+          <div class="c-info">
+            <strong>Address</strong>
+            <span>No. 2/283, 37th Street, 7th Sector,<br>Lakshmana Salai, K.K. Nagar,<br>Chennai – 600078, Tamil Nadu, India</span>
+            <span style="margin-top:.4rem;font-size:.75rem;color:var(--gold)">Landmark: Near K.K. Nagar Post Office</span>
+          </div>
+        </div>
+
+        <div class="c-row">
+          <div class="c-icon">📞</div>
+          <div class="c-info">
+            <strong>Phone</strong>
+            <a href="tel:04442723030">044 4272 3030</a>
+            <a href="tel:+914442723030">+91 44 4272 3030</a>
+          </div>
+        </div>
+
+        <div class="c-row">
+          <div class="c-icon">✉️</div>
+          <div class="c-info">
+            <strong>Email</strong>
+            <a href="mailto:sridevisilkschennai@gmail.com">sridevisilkschennai@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="c-row">
+          <div class="c-icon">🕐</div>
+          <div class="c-info">
+            <strong>Business Hours</strong>
+            <span>Monday – Sunday</span>
+            <span>10:00 AM – 8:30 PM</span>
+            <div class="hours-badge"><div class="hours-dot"></div>Open Today</div>
+          </div>
+        </div>
+
+        <div class="c-row">
+          <div class="c-icon">💳</div>
+          <div class="c-info">
+            <strong>Accepted Payments</strong>
+            <div class="pay-row">
+              <span class="pay-pill">💵 Cash</span>
+              <span class="pay-pill">💳 Debit Card</span>
+              <span class="pay-pill">💳 Credit Card</span>
+              <span class="pay-pill">📱 UPI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="map-card">
+          <div class="map-pin">📍</div>
+          <div class="map-info">
+            <strong>Sri Devi Silks</strong>
+            <span>37th Street, K.K. Nagar, Chennai – 600078</span>
+          </div>
+          <a class="map-link" href="https://maps.google.com/?q=No+2/283+37th+Street+7th+Sector+KK+Nagar+Chennai+600078" target="_blank">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-name serif">Sri Devi Silks</div>
+        <div class="logo-sub" style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(191,138,48,.6);margin-top:.2rem">Est. 1966 · K.K. Nagar, Chennai</div>
+        <p>Chennai's trusted destination for authentic silk sarees and fine clothing. Proprietor: K.L. Kannan.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#contact">Contact & Location</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:04442723030">044 4272 3030</a></li>
+          <li><a href="mailto:sridevisilkschennai@gmail.com">sridevisilkschennai@gmail.com</a></li>
+          <li><a href="https://instagram.com/sridevisilkschennai" target="_blank">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Sri Devi Silks, Chennai. All rights reserved.</span>
+      <span class="footer-est">Serving Chennai since 1966</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Mobile hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+</script>
+</body>
+</html>
